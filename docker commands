@@ -1,0 +1,11 @@
+# To remove all containers
+sudo docker rm $(sudo docker ps -a -q)
+
+# To remove all images with no name
+sudo docker rmi $(sudo docker images -f "dangling=true" -q)
+
+# To build the Dockerfile
+sudo docker build -t jonathandc/alttpr:latest .
+
+# To run the alttpr web server
+sudo docker run -it --rm -p 8000:8000 jonathandc/alttpr:latest
